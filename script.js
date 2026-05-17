@@ -1,3 +1,11 @@
+function toggleSidebar() {
+  var sidebar = document.querySelector('.sidebar');
+  var overlay = document.getElementById('overlay');
+  var isOpen = sidebar.classList.toggle('open');
+  overlay.classList.toggle('active', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+}
+
 function showSection(name, el) {
   event.preventDefault();
 
@@ -13,4 +21,9 @@ function showSection(name, el) {
   });
 
   if (el) el.classList.add('active');
+
+  var sidebar = document.querySelector('.sidebar');
+  if (sidebar.classList.contains('open')) {
+    toggleSidebar();
+  }
 }

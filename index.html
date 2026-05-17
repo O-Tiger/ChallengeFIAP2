@@ -5,16 +5,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Care+ - Dashboard</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+  <!-- SVG icon sprite (hidden) -->
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="ic-menu" viewBox="0 0 20 20">
+        <rect y="3"  width="20" height="2" rx="1" fill="currentColor"/>
+        <rect y="9"  width="20" height="2" rx="1" fill="currentColor"/>
+        <rect y="15" width="20" height="2" rx="1" fill="currentColor"/>
+      </symbol>
+      <symbol id="ic-trophy" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5z"/>
+      </symbol>
+      <symbol id="ic-gear" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+        <path fill="currentColor" d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.474l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+      </symbol>
+      <symbol id="ic-graph" viewBox="0 0 16 16">
+        <path fill="currentColor" fill-rule="evenodd" d="M0 0h1v15h15v1H0V0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07z"/>
+      </symbol>
+      <symbol id="ic-link" viewBox="0 0 16 16">
+        <path fill="currentColor" fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+        <path fill="currentColor" fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+      </symbol>
+      <symbol id="ic-pin" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+      </symbol>
+      <symbol id="ic-rain" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973z"/>
+      </symbol>
+      <symbol id="ic-calendar" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+      </symbol>
+      <symbol id="ic-star" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+      </symbol>
+      <symbol id="ic-coin" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"/>
+        <path fill="currentColor" d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      </symbol>
+      <symbol id="ic-heart" viewBox="0 0 16 16">
+        <path fill="currentColor" fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+      </symbol>
+      <symbol id="ic-activity" viewBox="0 0 16 16">
+        <path fill="currentColor" fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2z"/>
+      </symbol>
+      <symbol id="ic-heartbeat" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+        <path fill="white" fill-rule="evenodd" d="M4.5 7.5a.5.5 0 0 1 .47.33L6 10.036l.53-1.208A.5.5 0 0 1 7 8.5h2a.5.5 0 0 1 0 1H7.29l-.82 1.87a.5.5 0 0 1-.94 0L4.5 8.964 3.97 10.17A.5.5 0 0 1 3.5 10.5H2a.5.5 0 0 1 0-1h1.29l.82-1.87A.5.5 0 0 1 4.5 7.5z"/>
+      </symbol>
+      <symbol id="ic-check" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="ic-person" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill="currentColor" fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <div class="layout">
 
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <p class="sidebar-title">Menu</p>
       <nav>
         <a href="#" class="nav-item active" onclick="showSection('dashboard', this)">Dashboard</a>
@@ -26,8 +83,19 @@
     <!-- Main -->
     <main class="main">
 
-      <!-- Branding -->
-      <div class="brand">
+      <!-- Mobile Top Bar -->
+      <div class="mobile-topbar">
+        <button class="hamburger" onclick="toggleSidebar()" aria-label="Abrir menu">
+          <svg class="icon"><use href="#ic-menu"/></svg>
+        </button>
+        <div class="brand">
+          <span class="brand-name">Care+</span>
+          <span class="brand-sub">Part of Bupa</span>
+        </div>
+      </div>
+
+      <!-- Branding (desktop only) -->
+      <div class="desktop-brand">
         <span class="brand-name">Care+</span>
         <span class="brand-sub">Part of Bupa</span>
       </div>
@@ -40,76 +108,70 @@
           <div class="center-col">
 
             <!-- Profile Card -->
-            <div class="card mb-3">
+            <div class="card">
               <div class="card-body">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                  <div class="d-flex align-items-center gap-3">
+                <div class="row-between">
+                  <div class="row-center">
                     <div class="avatar">🐻</div>
                     <div>
-                      <h5 class="mb-1">Maria Silva</h5>
-                      <div class="d-flex align-items-center gap-2">
-                        <i class="bi bi-trophy-fill text-warning"></i>
-                        <span class="badge bg-primary">Nível 5 - Responsável</span>
+                      <h5 class="user-name">Maria Silva</h5>
+                      <div class="row-center gap-sm">
+                        <svg class="icon icon-warning"><use href="#ic-trophy"/></svg>
+                        <span class="badge">Nível 5 - Responsável</span>
                       </div>
                     </div>
                   </div>
-                  <i class="bi bi-gear-fill text-secondary settings-icon"></i>
+                  <svg class="icon icon-muted icon-lg"><use href="#ic-gear"/></svg>
                 </div>
-                <div class="d-flex justify-content-between mb-1">
+                <div class="xp-meta">
                   <small class="text-muted">XP: 680 / 1000</small>
-                  <small class="text-primary fw-bold">68%</small>
+                  <small class="text-primary bold">68%</small>
                 </div>
-                <div class="progress xp-progress">
-                  <div class="progress-bar xp-bar" role="progressbar" style="width: 68%"></div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 68%"></div>
                 </div>
               </div>
             </div>
 
             <!-- Evolution Card -->
-            <div class="card mb-3">
+            <div class="card">
               <div class="card-body">
-                <div class="d-flex align-items-center justify-content-between mb-1">
-                  <h6 class="mb-0 d-flex align-items-center gap-2">
-                    <i class="bi bi-graph-up text-purple"></i>
+                <div class="row-between">
+                  <h6 class="row-center gap-sm">
+                    <svg class="icon icon-purple"><use href="#ic-graph"/></svg>
                     Trilha de Evolução
                   </h6>
-                  <i class="bi bi-box-arrow-up-right text-muted small-icon"></i>
+                  <svg class="icon icon-muted icon-sm"><use href="#ic-link"/></svg>
                 </div>
-                <p class="text-muted small mb-3">Veja como seu cuidado com a saúde impactou seu bem-estar</p>
-                <div class="row g-2">
-                  <div class="col-4">
-                    <div class="stat-box stat-blue">
-                      <span class="stat-num">24</span>
-                      <small>Consultas</small>
-                    </div>
+                <p class="text-muted subtitle">Veja como seu cuidado com a saúde impactou seu bem-estar</p>
+                <div class="stats-row">
+                  <div class="stat-box stat-blue">
+                    <span class="stat-num">24</span>
+                    <small>Consultas</small>
                   </div>
-                  <div class="col-4">
-                    <div class="stat-box stat-green">
-                      <span class="stat-num">98%</span>
-                      <small>Presença</small>
-                    </div>
+                  <div class="stat-box stat-green">
+                    <span class="stat-num">98%</span>
+                    <small>Presença</small>
                   </div>
-                  <div class="col-4">
-                    <div class="stat-box stat-yellow">
-                      <span class="stat-num">12</span>
-                      <small>Medalhas</small>
-                    </div>
+                  <div class="stat-box stat-yellow">
+                    <span class="stat-num">12</span>
+                    <small>Medalhas</small>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Alert Cards -->
-            <div class="alert-card alert-traffic mb-3">
-              <i class="bi bi-geo-alt-fill alert-icon"></i>
+            <div class="alert-card alert-traffic">
+              <svg class="icon alert-icon"><use href="#ic-pin"/></svg>
               <div>
                 <p class="alert-title">Previsão de Trânsito</p>
                 <p class="alert-text">Trânsito intenso previsto amanhã às 9h. Recomendamos sair às 8:00 para evitar atrasos.</p>
               </div>
             </div>
 
-            <div class="alert-card alert-weather mb-3">
-              <i class="bi bi-cloud-rain-fill alert-icon"></i>
+            <div class="alert-card alert-weather">
+              <svg class="icon alert-icon"><use href="#ic-rain"/></svg>
               <div>
                 <p class="alert-title">Previsão do Tempo</p>
                 <p class="alert-text">Chuva prevista amanhã. Não esqueça o guarda-chuva!</p>
@@ -117,7 +179,7 @@
             </div>
 
             <div class="alert-card alert-suggestion">
-              <i class="bi bi-calendar-check-fill alert-icon"></i>
+              <svg class="icon alert-icon"><use href="#ic-calendar"/></svg>
               <div>
                 <p class="alert-title">Sugestão Inteligente</p>
                 <p class="alert-text">Que tal fazer uma consulta online? O trânsito e a chuva podem atrapalhar. Ganhe +100 XP!</p>
@@ -130,34 +192,38 @@
           <div class="right-col">
 
             <!-- Challenges Header -->
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <h6 class="mb-0 d-flex align-items-center gap-2">
-                <i class="bi bi-star-fill text-warning"></i>
+            <div class="row-between section-header">
+              <h6 class="row-center gap-sm">
+                <svg class="icon icon-warning"><use href="#ic-star"/></svg>
                 Desafios de Sequência
               </h6>
-              <i class="bi bi-box-arrow-up-right text-muted small-icon"></i>
+              <svg class="icon icon-muted icon-sm"><use href="#ic-link"/></svg>
             </div>
 
             <!-- Gold Challenge -->
-            <div class="challenge challenge-gold mb-2">
+            <div class="challenge challenge-gold">
               <div class="ch-icon ch-icon-gold">
-                <i class="bi bi-coin"></i>
+                <svg class="icon"><use href="#ic-coin"/></svg>
               </div>
               <div class="ch-body">
                 <p class="ch-title">Pontual de Ouro</p>
                 <p class="ch-desc">Complete 3 consultas sem atraso</p>
-                <div class="d-flex gap-1 mt-2">
-                  <span class="dot dot-done"><i class="bi bi-check"></i></span>
-                  <span class="dot dot-done"><i class="bi bi-check"></i></span>
+                <div class="dots">
+                  <span class="dot dot-done">
+                    <svg class="icon icon-sm"><use href="#ic-check"/></svg>
+                  </span>
+                  <span class="dot dot-done">
+                    <svg class="icon icon-sm"><use href="#ic-check"/></svg>
+                  </span>
                   <span class="dot dot-pending">3</span>
                 </div>
               </div>
             </div>
 
             <!-- Blue Challenge -->
-            <div class="challenge challenge-blue mb-4">
+            <div class="challenge challenge-blue">
               <div class="ch-icon ch-icon-blue">
-                <i class="bi bi-calendar3"></i>
+                <svg class="icon"><use href="#ic-calendar"/></svg>
               </div>
               <div class="ch-body">
                 <p class="ch-title">Sem Faltas no Mês</p>
@@ -167,16 +233,16 @@
 
             <!-- Health Impact -->
             <div class="health-card">
-              <div class="d-flex align-items-center gap-2 mb-3">
-                <i class="bi bi-heart-fill"></i>
-                <h6 class="mb-0">Impacto na Saúde</h6>
+              <div class="row-center gap-sm health-header">
+                <svg class="icon"><use href="#ic-heart"/></svg>
+                <h6>Impacto na Saúde</h6>
               </div>
-              <div class="health-item mb-2">
-                <i class="bi bi-activity"></i>
+              <div class="health-item">
+                <svg class="icon"><use href="#ic-activity"/></svg>
                 <span>Pressão arterial controlada há 3 meses</span>
               </div>
-              <div class="health-item mb-3">
-                <i class="bi bi-heart-pulse"></i>
+              <div class="health-item">
+                <svg class="icon"><use href="#ic-heartbeat"/></svg>
                 <span>Check-ups em dia = riscos reduzidos</span>
               </div>
               <div class="health-cta">
@@ -192,7 +258,7 @@
       <!-- Consultas Section -->
       <section id="consultasSection" class="section">
         <div class="placeholder-section">
-          <i class="bi bi-calendar3 placeholder-icon"></i>
+          <svg class="icon placeholder-icon"><use href="#ic-calendar"/></svg>
           <h4>Consultas</h4>
           <p class="text-muted">Gerencie suas consultas médicas aqui.</p>
         </div>
@@ -201,7 +267,7 @@
       <!-- Perfil Section -->
       <section id="perfilSection" class="section">
         <div class="placeholder-section">
-          <i class="bi bi-person-circle placeholder-icon"></i>
+          <svg class="icon placeholder-icon"><use href="#ic-person"/></svg>
           <h4>Perfil</h4>
           <p class="text-muted">Configure seu perfil e preferências.</p>
         </div>
@@ -210,7 +276,8 @@
     </main>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
   <script src="script.js"></script>
 </body>
 

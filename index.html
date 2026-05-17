@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Care+ - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <p class="sidebar-title">Menu</p>
+      <nav>
+        <a href="#" class="nav-item active" onclick="showSection('dashboard', this)">Dashboard</a>
+        <a href="#" class="nav-item" onclick="showSection('consultas', this)">Consultas</a>
+        <a href="#" class="nav-item" onclick="showSection('perfil', this)">Perfil</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+      <!-- Branding -->
+      <div class="brand">
+        <span class="brand-name">Care+</span>
+        <span class="brand-sub">Part of Bupa</span>
+      </div>
+
+      <!-- Dashboard Section -->
+      <section id="dashboardSection" class="section active">
+        <div class="content-grid">
+
+          <!-- Center Column -->
+          <div class="center-col">
+
+            <!-- Profile Card -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="avatar">🐻</div>
+                    <div>
+                      <h5 class="mb-1">Maria Silva</h5>
+                      <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-trophy-fill text-warning"></i>
+                        <span class="badge bg-primary">Nível 5 - Responsável</span>
+                      </div>
+                    </div>
+                  </div>
+                  <i class="bi bi-gear-fill text-secondary settings-icon"></i>
+                </div>
+                <div class="d-flex justify-content-between mb-1">
+                  <small class="text-muted">XP: 680 / 1000</small>
+                  <small class="text-primary fw-bold">68%</small>
+                </div>
+                <div class="progress xp-progress">
+                  <div class="progress-bar xp-bar" role="progressbar" style="width: 68%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Evolution Card -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="d-flex align-items-center justify-content-between mb-1">
+                  <h6 class="mb-0 d-flex align-items-center gap-2">
+                    <i class="bi bi-graph-up text-purple"></i>
+                    Trilha de Evolução
+                  </h6>
+                  <i class="bi bi-box-arrow-up-right text-muted small-icon"></i>
+                </div>
+                <p class="text-muted small mb-3">Veja como seu cuidado com a saúde impactou seu bem-estar</p>
+                <div class="row g-2">
+                  <div class="col-4">
+                    <div class="stat-box stat-blue">
+                      <span class="stat-num">24</span>
+                      <small>Consultas</small>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="stat-box stat-green">
+                      <span class="stat-num">98%</span>
+                      <small>Presença</small>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="stat-box stat-yellow">
+                      <span class="stat-num">12</span>
+                      <small>Medalhas</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alert Cards -->
+            <div class="alert-card alert-traffic mb-3">
+              <i class="bi bi-geo-alt-fill alert-icon"></i>
+              <div>
+                <p class="alert-title">Previsão de Trânsito</p>
+                <p class="alert-text">Trânsito intenso previsto amanhã às 9h. Recomendamos sair às 8:00 para evitar atrasos.</p>
+              </div>
+            </div>
+
+            <div class="alert-card alert-weather mb-3">
+              <i class="bi bi-cloud-rain-fill alert-icon"></i>
+              <div>
+                <p class="alert-title">Previsão do Tempo</p>
+                <p class="alert-text">Chuva prevista amanhã. Não esqueça o guarda-chuva!</p>
+              </div>
+            </div>
+
+            <div class="alert-card alert-suggestion">
+              <i class="bi bi-calendar-check-fill alert-icon"></i>
+              <div>
+                <p class="alert-title">Sugestão Inteligente</p>
+                <p class="alert-text">Que tal fazer uma consulta online? O trânsito e a chuva podem atrapalhar. Ganhe +100 XP!</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column -->
+          <div class="right-col">
+
+            <!-- Challenges Header -->
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <h6 class="mb-0 d-flex align-items-center gap-2">
+                <i class="bi bi-star-fill text-warning"></i>
+                Desafios de Sequência
+              </h6>
+              <i class="bi bi-box-arrow-up-right text-muted small-icon"></i>
+            </div>
+
+            <!-- Gold Challenge -->
+            <div class="challenge challenge-gold mb-2">
+              <div class="ch-icon ch-icon-gold">
+                <i class="bi bi-coin"></i>
+              </div>
+              <div class="ch-body">
+                <p class="ch-title">Pontual de Ouro</p>
+                <p class="ch-desc">Complete 3 consultas sem atraso</p>
+                <div class="d-flex gap-1 mt-2">
+                  <span class="dot dot-done"><i class="bi bi-check"></i></span>
+                  <span class="dot dot-done"><i class="bi bi-check"></i></span>
+                  <span class="dot dot-pending">3</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Blue Challenge -->
+            <div class="challenge challenge-blue mb-4">
+              <div class="ch-icon ch-icon-blue">
+                <i class="bi bi-calendar3"></i>
+              </div>
+              <div class="ch-body">
+                <p class="ch-title">Sem Faltas no Mês</p>
+                <p class="ch-desc">Compareça a todas as consultas de Novembro sem faltas</p>
+              </div>
+            </div>
+
+            <!-- Health Impact -->
+            <div class="health-card">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <i class="bi bi-heart-fill"></i>
+                <h6 class="mb-0">Impacto na Saúde</h6>
+              </div>
+              <div class="health-item mb-2">
+                <i class="bi bi-activity"></i>
+                <span>Pressão arterial controlada há 3 meses</span>
+              </div>
+              <div class="health-item mb-3">
+                <i class="bi bi-heart-pulse"></i>
+                <span>Check-ups em dia = riscos reduzidos</span>
+              </div>
+              <div class="health-cta">
+                Seu compromisso com a saúde está fazendo a diferença! Continue assim!
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Consultas Section -->
+      <section id="consultasSection" class="section">
+        <div class="placeholder-section">
+          <i class="bi bi-calendar3 placeholder-icon"></i>
+          <h4>Consultas</h4>
+          <p class="text-muted">Gerencie suas consultas médicas aqui.</p>
+        </div>
+      </section>
+
+      <!-- Perfil Section -->
+      <section id="perfilSection" class="section">
+        <div class="placeholder-section">
+          <i class="bi bi-person-circle placeholder-icon"></i>
+          <h4>Perfil</h4>
+          <p class="text-muted">Configure seu perfil e preferências.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
